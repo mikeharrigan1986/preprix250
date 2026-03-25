@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://preprix250.allamericanball.com/sitemap-index.xml
+Sitemap: https://preprix250.com/sitemap-index.xml
