@@ -1,0 +1,354 @@
+---
+const ticketUrl = "#";
+
+const tickets = [
+  {
+    name: "Grand Stand Ticket",
+    time: "The Ball: 8 PM – Midnight",
+    price: "$195",
+    futurePrice: "$295 / $395 / $495",
+    description: "Best for guests who want the full Ball experience at the most accessible entry point.",
+    sections: [
+      {
+        heading: "Includes The Ball Only (8 PM–Midnight)",
+        items: [
+          "Admission to the main Ball",
+          "Access to 4 grand party areas and 3 dance floors",
+          "Open bar all night",
+          "Multiple live bands and DJs",
+          "Immersive experiences and roaming entertainers",
+          "Step-and-repeat access",
+          "Grand Prix Tribute performance",
+          "Racing Legends Lifetime Achievement Awards ceremony",
+        ],
+      },
+    ],
+    note: "Reception-style Ball with limited seating",
+    highlight: false,
+    badge: "",
+    tier: 1,
+  },
+  {
+    name: "Pole Position Pass",
+    time: "VIP Reception + Ball: 6 PM – Midnight",
+    price: "$395",
+    futurePrice: "$595 / $795 / $995",
+    description: "Best for guests who want early access, dinner, and a more elevated evening from start to finish.",
+    sectionIntro: "Includes Two Distinct Experiences: The VIP Reception + The Ball",
+    sections: [
+      {
+        heading: "Part One: VIP Reception (6 PM–8 PM)",
+        items: [
+          "Early entry beginning at 5:30 PM",
+          "Admission to the exclusive VIP Reception",
+          "Buffet dinner",
+          "Premium open bar",
+          "Opportunity to mingle with racing legends and VIP guests",
+          "Live entertainment",
+          "Immersive experiences and roaming entertainers",
+          "Step-and-repeat access",
+        ],
+      },
+      {
+        heading: "Part Two: The Ball (8 PM–Midnight)",
+        items: [
+          "Admission to the main Ball",
+          "Access to 4 grand party areas and 3 dance floors",
+          "Open bar all night",
+          "Multiple live bands and DJs",
+          "Immersive experiences, roaming entertainers and step-and-repeat",
+          "Grand Prix Tribute performance",
+          "Racing Legends Lifetime Achievement Awards ceremony",
+        ],
+      },
+    ],
+    note: "Reception-style Ball with limited seating",
+    highlight: false,
+    badge: "Tier 2",
+    tier: 2,
+  },
+  {
+    name: "Winner's Circle Pass",
+    time: "Premier Luxury: 6 PM – Midnight",
+    price: "$1,495",
+    futurePrice: "$2,500 / $3,500 / $5,000",
+    sectionIntro: "Includes Two Distinct Experiences: The VIP Reception + The Ball — Elevated with Exclusive Access, Concierge Service, and Recognition",
+    sections: [
+      {
+        heading: "Part One: VIP Reception (6 PM–8 PM)",
+        items: [
+          "Early entry beginning at 5:30 PM",
+          "Private expedited entrance",
+          "Dedicated Ambassador / concierge service",
+          "Reserved seating on the Champion's Stage with special guests",
+          "Private top-shelf open bars",
+          "Premium buffet dinner",
+          "Live entertainment",
+          "Private immersive experiences and roaming entertainers",
+          "Access to exclusive hospitality areas",
+          "Access to historic hotel spaces reserved for presidents and dignitaries",
+          "Private photographer access",
+          "Private step-and-repeat",
+          "Premium recognition in the official event program",
+          "Stage announcement recognition",
+        ],
+      },
+      {
+        heading: "Part Two: The Ball (8 PM–Midnight)",
+        items: [
+          "Continued concierge-level service throughout the evening",
+          "Reserved Champion's Stage seating for the main celebration",
+          "Access to all 6 grand party areas and all 4 stages / dance floors",
+          "Multiple live bands and DJs",
+          "Backstage access",
+          "Passed hors d'oeuvres and private dessert bar",
+          "Most exclusive vantage points for the main stage performances and ceremonies",
+          "Racing Legends Lifetime Achievement Awards ceremony",
+          "Grand Prix Tribute performance",
+        ],
+      },
+      {
+        heading: "Additional Benefits",
+        items: [
+          "Premium limited-edition official event gift",
+          "Personal stage announcement recognition",
+          "Special recognition in the official event program (lead-time permitting)",
+          "Official Winner's Circle Pass lanyard",
+          "Commemorative official event program",
+        ],
+      },
+    ],
+    note: "Extremely limited. Expected to sell out.",
+    highlight: true,
+    badge: "Tier 3 - Most Popular",
+    tier: 3,
+  },
+];
+
+const hostPackages = [
+  {
+    name: "Team Principal Host Package",
+    price: "$14,500",
+    subtitle: "Includes three Winner's Circle Passes plus:",
+    features: [
+      "Half-page tribute feature/personal message in official event program",
+      "Private tour of historic hotel spaces reserved for presidents & dignitaries",
+      "Multiple VIP stage recognition announcements during the event",
+      "Elite concierge hospitality services",
+      "Upgraded premium official event gifts",
+    ],
+    tier: 4,
+  },
+  {
+    name: "Champion's Host Package",
+    price: "$18,500",
+    subtitle: "Includes four Winner's Circle Passes plus:",
+    features: [
+      "Full-page tribute feature/personal message in official event program",
+      "Private tour of historic hotel spaces reserved for presidents & dignitaries",
+      "Multiple VIP stage recognition announcements during the event",
+      "Elite concierge hospitality services",
+      "Upgraded premium official event gifts",
+    ],
+    tier: 5,
+  },
+];
+---
+
+<section id="tickets" class="py-20 sm:py-28 bg-navy-dark text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Early Release Pricing</p>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">Choose Your Experience</h2>
+      <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
+      <p class="price-warning text-gold font-bold text-lg tracking-wide max-w-xl mx-auto mb-6">
+        PRICES WILL INCREASE VERY SOON!
+      </p>
+      <div class="flex items-center justify-center gap-3 flex-wrap">
+        {["Grand Stand", "Pole Position", "Winner's Circle", "Team Principal", "Champion's Host"].map((name, i) => (
+          <span class={`px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase ${
+            i === 2 ? 'bg-white/10 text-white/80 border border-white/20' : 'bg-white/10 text-white/80 border border-white/20'
+          }`}>
+            {name}
+          </span>
+        ))}
+      </div>
+      <p class="text-white/40 text-sm mt-3">5 ticket options — scroll down to see all</p>
+    </div>
+
+    <!-- Ticket tier indicator -->
+    <div class="flex items-center justify-center gap-0 mb-12 max-w-4xl mx-auto">
+      <div class="flex-1 h-1 bg-white/20 rounded-l-full"></div>
+      {[1, 2, 3, 4, 5].map((tier) => (
+        <div class="flex flex-col items-center mx-2 sm:mx-4">
+          <div class={`w-4 h-4 rounded-full border-2 ${tier <= 3 ? 'bg-gold border-gold' : 'bg-red border-red'}`}></div>
+        </div>
+      ))}
+      <div class="flex-1 h-1 bg-white/20 rounded-r-full"></div>
+    </div>
+
+    <!-- Main 3 ticket cards -->
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-10 mb-16">
+      {tickets.map((ticket) => (
+        <div class={`relative rounded-2xl overflow-hidden flex flex-col ${
+          ticket.highlight
+            ? 'bg-white text-slate ring-4 ring-gold shadow-2xl scale-[1.03]'
+            : 'bg-white/5 border-2 border-white/15 text-white'
+        }`}>
+          {/* Tier header bar */}
+          <div class={`py-2 text-center text-xs font-bold tracking-widest uppercase ${
+            ticket.highlight
+              ? 'bg-gold text-navy-dark'
+              : 'bg-white/10 text-white/60'
+          }`}>
+            {ticket.badge || `Tier ${ticket.tier}`}
+          </div>
+
+          <div class="p-8 flex flex-col flex-grow">
+            <div class="mb-6">
+              <p class={`text-xs font-medium tracking-wider uppercase mb-2 ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                {ticket.time}
+              </p>
+              <h3 class={`text-2xl font-bold mb-1 ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
+                {ticket.name}
+              </h3>
+            </div>
+
+            <div class="mb-6 pb-6 border-b ${ticket.highlight ? 'border-slate/10' : 'border-white/10'}">
+              <div class="flex items-baseline gap-1">
+                <span class={`text-4xl font-bold ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
+                  {ticket.price}
+                </span>
+                <span class={`text-sm ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                  / early
+                </span>
+              </div>
+              <p class={`text-xs mt-1 ${ticket.highlight ? 'text-slate/40' : 'text-white/30'}`}>
+                Future tiers: {ticket.futurePrice}
+              </p>
+            </div>
+
+            {ticket.description && (
+              <p class={`text-sm mb-6 italic ${ticket.highlight ? 'text-slate/60' : 'text-white/50'}`}>
+                {ticket.description}
+              </p>
+            )}
+
+            {ticket.sectionIntro && (
+              <p class={`text-xs font-bold tracking-wider uppercase mb-4 ${ticket.highlight ? 'text-navy/70' : 'text-gold/90'}`}>
+                {ticket.sectionIntro}
+              </p>
+            )}
+
+            <div class="space-y-5 mb-8 flex-grow">
+              {ticket.sections.map((section, si) => (
+                <div>
+                  <p class={`text-xs font-bold tracking-wider uppercase mb-2 ${
+                    ticket.highlight ? 'text-navy/70' : 'text-gold/90'
+                  } ${si > 0 ? 'pt-3 border-t ' + (ticket.highlight ? 'border-slate/10' : 'border-white/10') : ''}`}>
+                    {section.heading}
+                  </p>
+                  <ul class="space-y-2">
+                    {section.items.map((f) => (
+                      <li class="flex items-start gap-2">
+                        <svg class={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 ${ticket.highlight ? 'text-gold' : 'text-gold/80'}`} fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                        </svg>
+                        <span class={`text-sm leading-snug ${ticket.highlight ? 'text-slate/80' : 'text-white/70'}`}>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {ticket.note && (
+              <p class={`text-xs mb-4 italic ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                {ticket.note}
+              </p>
+            )}
+
+            <button
+              id={`eb-ticket-${ticket.tier}`}
+              class={`eventbrite-checkout block w-full text-center py-3.5 px-6 rounded-lg font-semibold text-sm tracking-wider uppercase transition-all hover:-translate-y-0.5 cursor-pointer ${
+                ticket.highlight
+                  ? 'shadow-lg'
+                  : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+              }`}
+              style={ticket.highlight ? 'background-color: #1a56db !important; color: white !important;' : ''}
+            >
+              Buy Tickets
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Divider between ticket types -->
+    <div class="flex items-center gap-4 max-w-3xl mx-auto mb-16">
+      <div class="flex-1 h-px bg-gold/30"></div>
+      <span class="text-gold font-medium tracking-[0.2em] uppercase text-sm">Premium Packages</span>
+      <div class="flex-1 h-px bg-gold/30"></div>
+    </div>
+
+    <!-- Host packages - now with clear delineation -->
+    <div class="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {hostPackages.map((pkg) => (
+        <div class="bg-gradient-to-b from-gold/10 to-transparent border-2 border-gold/30 rounded-2xl overflow-hidden">
+          {/* Tier header bar */}
+          <div class="py-2 text-center text-xs font-bold tracking-widest uppercase bg-gold/20 text-gold">
+            Tier {pkg.tier}
+          </div>
+          <div class="p-8 text-center">
+            <h3 class="text-xl font-bold text-gold mb-2">{pkg.name}</h3>
+            <p class="text-4xl font-bold text-white mb-4">{pkg.price}</p>
+            <p class="text-white/60 text-sm mb-6 italic">{pkg.subtitle}</p>
+            <ul class="space-y-2 mb-6 text-left max-w-sm mx-auto">
+              {pkg.features.map((f) => (
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-white/70 text-sm">{f}</span>
+                </li>
+              ))}
+            </ul>
+            <button id={`eb-host-${pkg.tier}`} class="eventbrite-checkout inline-block px-8 py-3 rounded-lg text-sm font-semibold tracking-wider uppercase transition-all hover:-translate-y-0.5 cursor-pointer" style="background-color: #1a56db !important; color: white !important;">
+              Buy Package
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+    <!-- Event Info & Disclaimers -->
+    <div class="mt-20 pt-12 border-t border-white/10 max-w-3xl mx-auto">
+      <div class="mb-10">
+        <div class="text-center">
+          <h4 class="text-gold font-semibold text-sm tracking-wider uppercase mb-2">Dress Code</h4>
+          <p class="text-white/70 text-sm">Black Tie Optional</p>
+          <p class="text-white/50 text-xs mt-1">Racing-inspired flair encouraged!</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <p class="text-white/30 text-xs">All sales are final. Full <a href="/faq/#terms" class="text-white/50 underline hover:text-white/70">Terms & Conditions</a> apply.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes price-glow {
+    0%, 100% {
+      opacity: 0.6;
+      text-shadow: none;
+    }
+    50% {
+      opacity: 1;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3);
+    }
+  }
+  .price-warning {
+    animation: price-glow 2.5s ease-in-out infinite;
+  }
+</style>

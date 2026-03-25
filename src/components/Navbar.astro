@@ -1,0 +1,139 @@
+---
+const ticketUrl = "#";
+const base = "";
+
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Venue", href: "#venue" },
+  { label: "Tickets", href: "#tickets" },
+];
+
+const moreLinks = [
+  { label: "Entertainment", href: `${base}/entertainment/` },
+  { label: "Honorees", href: `${base}/honorees/` },
+  { label: "Schedule", href: `${base}/schedule/` },
+  { label: "Partners", href: `${base}/partners/` },
+  { label: "News & Updates", href: `${base}/updates/` },
+  { label: "Press", href: `${base}/press/` },
+  { label: "FAQ", href: `${base}/faq/` },
+];
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent" style="overflow: visible;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="overflow: visible;">
+    <div class="flex items-center justify-between h-20" style="overflow: visible;">
+      <!-- Logo — large at top, shrinks on scroll. Top-aligned so it grows downward, never clipped -->
+      <a href="/" class="flex-shrink-0 relative z-10" style="overflow: visible; align-self: flex-start;">
+        <img
+          id="nav-logo"
+          src="/images/logos/new-logo.png"
+          alt="Pre-Prix 250"
+          class="drop-shadow-lg transition-all duration-500 ease-out"
+          style="height: 180px; width: 180px; margin-top: 4px;"
+        />
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-6">
+        {navLinks.map((link) => (
+          <a href={link.href} class="text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase transition-colors">{link.label}</a>
+        ))}
+
+        <!-- More dropdown -->
+        <div class="relative group">
+          <button class="text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase transition-colors flex items-center gap-1">
+            More
+            <svg class="w-3.5 h-3.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-navy-dark/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 py-2 min-w-[180px]">
+              {moreLinks.map((link) => (
+                <a href={link.href} class="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/10 text-sm font-medium tracking-wide transition-colors">{link.label}</a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="#tickets"
+          class="bg-red text-white px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:bg-red-light transition-colors rounded"
+        >
+          Ticket Options
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-navy-dark/95 backdrop-blur-sm">
+    <div class="px-4 py-6 space-y-4">
+      {navLinks.map((link) => (
+        <a href={link.href} class="block text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase">{link.label}</a>
+      ))}
+      <div class="border-t border-white/10 pt-4 mt-4">
+        <p class="text-white/40 text-xs uppercase tracking-wider mb-3">More</p>
+        {moreLinks.map((link) => (
+          <a href={link.href} class="block text-white/80 hover:text-white text-sm font-medium tracking-wide py-1.5">{link.label}</a>
+        ))}
+      </div>
+      <a
+        href="#tickets"
+        class="block bg-red text-white px-6 py-3 text-sm font-semibold tracking-wider uppercase text-center hover:bg-red-light transition-colors rounded mt-4"
+      >
+        Ticket Options
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Navbar scroll effect with logo resize
+  const navbar = document.getElementById('navbar');
+  const navLogo = document.getElementById('nav-logo');
+  const LOGO_BIG = 180;   // px when at top — extends well below navbar
+  const LOGO_SMALL = 100;  // px when scrolled — just barely fits in the navbar bar
+  const SCROLL_RANGE = 150; // px of scroll over which the transition happens
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    // Background change
+    if (scrollY > 80) {
+      navbar?.classList.add('bg-navy-dark/95', 'backdrop-blur-sm', 'shadow-lg');
+      navbar?.classList.remove('bg-transparent');
+    } else {
+      navbar?.classList.remove('bg-navy-dark/95', 'backdrop-blur-sm', 'shadow-lg');
+      navbar?.classList.add('bg-transparent');
+    }
+
+    // Logo resize — top-aligned, grows/shrinks downward so top is never clipped
+    if (navLogo) {
+      const t = Math.min(scrollY / SCROLL_RANGE, 1);
+      const size = LOGO_BIG - (LOGO_BIG - LOGO_SMALL) * t;
+      navLogo.style.height = size + 'px';
+      navLogo.style.width = size + 'px';
+    }
+  });
+
+  // Mobile menu toggle
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu on link click
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => menu?.classList.add('hidden'));
+  });
+</script>

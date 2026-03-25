@@ -1,0 +1,166 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const faqs = [
+  {
+    category: "General",
+    questions: [
+      {
+        q: "What is Pre-Prix 250?",
+        a: "The ultimate black-tie racing gala. On the evening of August 22, 2026, thousands of guests will gather at the Washington Hilton in Washington, D.C. for a night of motorsport celebration, entertainment, and sophistication."
+      },
+      {
+        q: "When and where is the event?",
+        a: "Saturday, August 22, 2026 at the Washington Hilton, 1919 Connecticut Ave NW, Washington, D.C. 20009. The VIP Reception begins at 6:00 PM and the main Ball runs from 8:00 PM to Midnight."
+      },
+      {
+        q: "What is the dress code?",
+        a: "Black Tie Optional. Racing-inspired flair is encouraged!"
+      },
+      {
+        q: "Is there an age requirement?",
+        a: "All ages are welcome. Minors must be accompanied by a responsible adult at all times. There are no children's discounts. Guests must be 21 or older with valid government-issued photo ID to consume alcoholic beverages."
+      },
+      {
+        q: "Is the event rain or shine?",
+        a: "Yes. The event will take place rain or shine, regardless of weather conditions. The event is held indoors at the Washington Hilton."
+      },
+    ]
+  },
+  {
+    category: "Tickets & Pricing",
+    questions: [
+      {
+        q: "How many ticket options are there?",
+        a: "There are 5 ticket tiers: Grand Stand, Pole Position, Winner's Circle, Team Principal Host, and Champion's Host. Each offers a different level of access and amenities."
+      },
+      {
+        q: "Will ticket prices increase?",
+        a: "Yes. Prices will increase very soon, without notice. We strongly encourage you to lock in today's rates."
+      },
+      {
+        q: "Can I get a refund or exchange my ticket?",
+        a: "No. All ticket sales are final. There are no refunds, exchanges, transfers, or cancellations under any circumstances."
+      },
+      {
+        q: "Are tickets transferable?",
+        a: "Tickets are non-transferable without prior written approval from the event organizer."
+      },
+      {
+        q: "Do I need ID to enter?",
+        a: "Yes. A valid government-issued photo ID is required for entry. Guests must be 21 or older to consume alcoholic beverages."
+      },
+    ]
+  },
+  {
+    category: "Event Experience",
+    questions: [
+      {
+        q: "What is included with my ticket?",
+        a: "Each ticket tier includes different amenities. Please visit the Tickets section on our homepage for a detailed breakdown of what's included with each tier."
+      },
+      {
+        q: "Will there be food and drinks?",
+        a: "Yes. The Grand Stand ticket includes open bar all night. The Pole Position and Winner's Circle tiers include buffet dinner during the VIP Reception plus open bar throughout the evening."
+      },
+      {
+        q: "What kind of entertainment will there be?",
+        a: "The event features multiple live bands and DJs across multiple stages and dance floors, immersive racing experiences, racing simulators, a Grand Prix Tribute performance, and the Racing Legends Lifetime Achievement Awards ceremony."
+      },
+      {
+        q: "Is there parking at the venue?",
+        a: "The Washington Hilton offers on-site parking. We also recommend ride-share services. The Dupont Circle Metro station is a short walk from the venue. Additional transportation details will be shared closer to the event."
+      },
+    ]
+  },
+  {
+    category: "Hotel Accommodations",
+    questions: [
+      {
+        q: "Is there a discounted hotel room rate for guests?",
+        a: "Yes. A limited block of rooms has been reserved at the Washington Hilton at a special group rate of $309 per night (plus taxes and fees) exclusively for Pre-Prix 250 guests. This rate must be booked by August 1, 2026 and is subject to availability."
+      },
+      {
+        q: "What is included with the hotel room?",
+        a: "The group rate includes a daily $25 food and beverage credit, premium Wi-Fi for up to 3 devices, and a complimentary daily 3-hour Lyft bicycle pass. Check-in is at 4:00 PM and check-out is at 11:00 AM."
+      },
+      {
+        q: "How do I book a room at the discounted rate?",
+        a: "An exclusive guest booking portal will be available very soon. Please check back on our website or follow our News & Updates page for the booking link announcement."
+      },
+      {
+        q: "What is the deadline to book at the group rate?",
+        a: "Rooms must be booked by August 1, 2026. After the cut-off date, rooms may still be available but only at the hotel's prevailing rates. We strongly recommend booking early as the block is limited."
+      },
+    ]
+  },
+];
+---
+
+<BaseLayout title="FAQ | Pre-Prix 250" description="Frequently asked questions about Pre-Prix 250 on August 22, 2026 at the Washington Hilton.">
+  <Navbar />
+  <main>
+    <!-- Hero header -->
+    <section class="relative pt-32 pb-20 bg-navy text-white overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/90 to-navy"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Everything You Need to Know</p>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 font-heading">Frequently Asked Questions</h1>
+        <div class="w-20 h-1 bg-red mx-auto"></div>
+      </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        {faqs.map((cat) => (
+          <div class="mb-16">
+            <h2 class="text-2xl font-bold text-navy mb-8 font-heading">{cat.category}</h2>
+            <div class="space-y-6">
+              {cat.questions.map((item) => (
+                <div class="border-b border-slate/10 pb-6">
+                  <h3 class="text-lg font-semibold text-navy mb-2">{item.q}</h3>
+                  <p class="text-slate/70 leading-relaxed">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <!-- Full Terms & Conditions -->
+        <div class="mt-16 pt-12 border-t-2 border-navy/10">
+          <h2 class="text-2xl font-bold text-navy mb-8 font-heading">Terms & Conditions</h2>
+          <div class="text-slate/70 text-sm leading-relaxed space-y-4">
+            <p><strong class="text-navy">1. All Sales Final.</strong> All ticket sales are final. No refunds, exchanges, transfers, or cancellations will be issued under any circumstances, including but not limited to scheduling conflicts, travel issues, illness, or dissatisfaction with the event.</p>
+            <p><strong class="text-navy">2. Weather Policy.</strong> The event will take place rain or shine, regardless of weather conditions. No refunds will be issued due to weather.</p>
+            <p><strong class="text-navy">3. Identification.</strong> A valid government-issued photo ID is required for entry to the event. Guests must be 21 years of age or older with valid ID to consume alcoholic beverages.</p>
+            <p><strong class="text-navy">4. Minors.</strong> All ages are welcome. Minors must be accompanied by a responsible adult at all times. No children's discounts are available.</p>
+            <p><strong class="text-navy">5. Lost or Stolen Items.</strong> The event organizer is not responsible for any lost, stolen, or damaged personal items, including but not limited to clothing, jewelry, electronics, bags, or other personal belongings. Guests attend at their own risk and are solely responsible for their personal property.</p>
+            <p><strong class="text-navy">6. Photography & Media Consent.</strong> By attending this event, you consent to being photographed, filmed, and recorded. All images, video, and audio recordings may be used by the event organizer for promotional, marketing, editorial, and media purposes without compensation or prior approval.</p>
+            <p><strong class="text-navy">7. Assumption of Risk.</strong> Ticket holders assume all risks associated with attending this event, including but not limited to personal injury, illness, or property damage.</p>
+            <p><strong class="text-navy">8. Right of Admission.</strong> Management reserves the right to refuse entry or remove any guest from the event at its sole discretion, without refund.</p>
+            <p><strong class="text-navy">9. Dress Code.</strong> The dress code is Black Tie Optional. Racing-inspired flair is encouraged. Management reserves the right to deny entry based on attire.</p>
+            <p><strong class="text-navy">10. Changes to Event.</strong> Date, time, venue, entertainment, performers, and programming are subject to change without notice. The event organizer is not liable for any changes to the event schedule or programming.</p>
+            <p><strong class="text-navy">11. Ticket Transferability.</strong> Tickets are non-transferable without prior written approval from the event organizer.</p>
+            <p><strong class="text-navy">12. Ticket Tier Benefits.</strong> Ticket tier benefits and amenities are subject to modification at the organizer's discretion.</p>
+            <p><strong class="text-navy">13. Liability.</strong> The event organizer, its affiliates, sponsors, partners, and the Washington Hilton shall not be held liable for any injury, loss, or damage of any kind sustained by any guest before, during, or after the event.</p>
+            <p><strong class="text-navy">14. Governing Law.</strong> These terms and conditions shall be governed by and construed in accordance with the laws of the Commonwealth of Virginia.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a
+            href="/"
+            class="inline-block bg-red hover:bg-red-light text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

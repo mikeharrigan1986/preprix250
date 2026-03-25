@@ -1,0 +1,171 @@
+---
+const highlights = [
+  "Host of the legendary White House Correspondents' Dinner",
+  "Site of the 1981 assassination attempt on President Ronald Reagan",
+  "Venue for countless presidential visits and historic national gatherings",
+  "Secure corridors and entrances used by U.S. presidents and dignitaries",
+];
+---
+
+<section id="venue" class="py-20 sm:py-28 bg-cream">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Image -->
+      <div class="relative order-2 md:order-1">
+        <div class="rounded-lg overflow-hidden shadow-xl aspect-[4/3]">
+          <img
+            src="/images/event/hilton-twilight.png"
+            alt="Washington Hilton at twilight"
+            class="w-full h-full object-cover scale-[1.02]"
+          />
+        </div>
+        <div class="absolute -top-4 -left-4 w-32 h-32 bg-gold/10 rounded-lg -z-10"></div>
+      </div>
+
+      <!-- Text -->
+      <div class="order-1 md:order-2">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">A Venue Built for Champions</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6">The Washington Hilton</h2>
+        <div class="w-16 h-1 bg-red mb-8"></div>
+
+        <p class="text-lg text-slate leading-relaxed mb-4">
+          Few venues in America carry the historical significance of the Washington Hilton.
+          For decades it has hosted U.S. presidents, world leaders, celebrities, journalists,
+          and historic national events that helped shape the American story.
+        </p>
+
+        <!-- Read more expandable -->
+        <div id="venue-details" class="hidden mb-6">
+          <div class="space-y-3 mb-6">
+            {highlights.map((h) => (
+              <div class="flex items-start gap-3">
+                <div class="mt-1.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></div>
+                <p class="text-slate">{h}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <button
+          id="venue-toggle"
+          class="text-red font-medium text-sm tracking-wide hover:text-red-light transition-colors mb-6 flex items-center gap-1"
+        >
+          <span id="venue-toggle-text">Read More</span>
+          <svg id="venue-toggle-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <p class="text-lg font-medium text-navy">
+          For one extraordinary evening, this iconic venue becomes the setting for the Pre-Prix 250.
+        </p>
+      </div>
+    </div>
+
+    <!-- Book Your Stay -->
+    <div class="mt-20 pt-16 border-t border-navy/10">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Exclusive Guest Rate</p>
+        <h3 class="text-2xl sm:text-3xl font-bold text-navy mb-4 font-heading">Book Your Stay</h3>
+        <div class="w-16 h-1 bg-red mx-auto mb-8"></div>
+
+        <p class="text-lg text-slate leading-relaxed mb-6">
+          A limited block of rooms has been reserved at the Washington Hilton at a special group rate
+          exclusively for Pre-Prix 250 guests.
+        </p>
+
+        <button
+          id="hotel-toggle"
+          class="text-red font-medium text-sm tracking-wide hover:text-red-light transition-colors mb-6 inline-flex items-center gap-1"
+        >
+          <span id="hotel-toggle-text">View Rate Details</span>
+          <svg id="hotel-toggle-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <div id="hotel-details" class="hidden">
+          <div class="bg-white rounded-2xl shadow-lg p-8 sm:p-10 mb-8 text-left max-w-xl mx-auto">
+            <div class="flex items-baseline justify-center gap-2 mb-6">
+              <span class="text-4xl font-bold text-navy">$309</span>
+              <span class="text-slate/60">/ night</span>
+            </div>
+            <p class="text-center text-slate/50 text-sm mb-6">Plus taxes & fees. Subject to availability.</p>
+
+            <div class="space-y-3 text-sm text-slate/80">
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+                <span>Daily $25 food & beverage credit included</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+                <span>Premium Wi-Fi for up to 3 devices</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+                <span>Check-in: 4:00 PM / Check-out: 11:00 AM</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+                <span>Complimentary daily 3-hour Lyft bicycle pass</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-slate/10 text-center">
+              <p class="text-red font-semibold text-sm">Book by August 1, 2026 — limited rooms available</p>
+            </div>
+          </div>
+
+          <div class="bg-navy/5 rounded-xl p-6 text-center">
+            <p class="text-navy font-semibold mb-2">🔗 Booking Link Coming Very Soon</p>
+            <p class="text-slate/60 text-sm">The exclusive guest booking portal will be available shortly. Check back here or follow our <a href="/updates/" class="text-red hover:text-red-light underline">News & Updates</a> for the announcement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggle = document.getElementById('venue-toggle');
+  const details = document.getElementById('venue-details');
+  const toggleText = document.getElementById('venue-toggle-text');
+  const toggleIcon = document.getElementById('venue-toggle-icon');
+
+  toggle?.addEventListener('click', () => {
+    const isHidden = details?.classList.contains('hidden');
+    details?.classList.toggle('hidden');
+    if (isHidden) {
+      toggleText!.textContent = 'Read Less';
+      toggleIcon?.classList.add('rotate-180');
+    } else {
+      toggleText!.textContent = 'Read More';
+      toggleIcon?.classList.remove('rotate-180');
+    }
+  });
+
+  const hotelToggle = document.getElementById('hotel-toggle');
+  const hotelDetails = document.getElementById('hotel-details');
+  const hotelToggleText = document.getElementById('hotel-toggle-text');
+  const hotelToggleIcon = document.getElementById('hotel-toggle-icon');
+
+  hotelToggle?.addEventListener('click', () => {
+    const isHidden = hotelDetails?.classList.contains('hidden');
+    hotelDetails?.classList.toggle('hidden');
+    if (isHidden) {
+      hotelToggleText!.textContent = 'Hide Details';
+      hotelToggleIcon?.classList.add('rotate-180');
+    } else {
+      hotelToggleText!.textContent = 'View Rate Details';
+      hotelToggleIcon?.classList.remove('rotate-180');
+    }
+  });
+</script>

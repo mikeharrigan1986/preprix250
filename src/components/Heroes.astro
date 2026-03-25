@@ -1,0 +1,61 @@
+---
+const heroImages = [
+  { src: "/images/event-photos/aab-2025-soldier-ceremony.jpg", alt: "Decorated soldier receiving All-American Hero award", caption: "Hero Awards Ceremony" },
+  { src: "/images/event-photos/aab-2025-medal-recipients-stage.jpg", alt: "Medal recipients on stage at the 2025 Ball", caption: "Medal Recipients" },
+  { src: "/images/event/buzz-aldrin.png", alt: "Buzz Aldrin at the All-American Ball", caption: "Honoring American Heroes" },
+  { src: "/images/event-photos/aab-2025-vip-group-formal.jpg", alt: "VIP group with honorees at the 2025 Ball", caption: "Distinguished Honorees" },
+];
+---
+
+<section id="heroes" class="py-20 sm:py-28 bg-cream">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="text-red font-medium tracking-[0.2em] uppercase text-sm mb-3">Honoring Racing Legends</p>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-6">Racing Legends & Honorees</h2>
+      <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
+      <div class="text-slate/70 text-lg max-w-3xl mx-auto space-y-4">
+        <p>
+          The spirit of motorsport is defined by the visionary drivers, engineers, and pioneers
+          who have pushed the boundaries of speed and innovation. These racing legends inspire us
+          through their extraordinary achievements on and off the track, and their unwavering
+          dedication to advancing the world of automotive excellence.
+        </p>
+        <p>
+          At the Pre-Prix 250 we are honored to recognize outstanding individuals
+          for their lifetime contributions to the world of racing, motorsport innovation,
+          and automotive achievement.
+        </p>
+      </div>
+    </div>
+
+    <!-- Hero ceremony photos -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {heroImages.map((img) => (
+        <div class="group relative overflow-hidden rounded-xl aspect-[3/4]">
+          <img
+            src={img.src}
+            alt={img.alt}
+            class="w-full h-full object-cover scale-[1.02] group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <p class="text-white font-semibold text-sm">{img.caption}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-10">
+      <p class="text-slate/60 text-sm italic mb-6">
+        2026 honorees will be announced as the event approaches.
+      </p>
+      <a
+        href="/honorees/"
+        class="inline-block bg-red hover:bg-red-light text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+      >
+        Learn More About Honorees
+      </a>
+    </div>
+  </div>
+</section>

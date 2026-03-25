@@ -1,0 +1,154 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage = '/images/logos/new-logo.png' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <!-- SEO -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Pre-Prix 250",
+    "description": "The ultimate black-tie racing gala. 3,000 guests, 6 party zones, 4 stages, grand finale at midnight.",
+    "startDate": "2026-08-22T17:30:00-04:00",
+    "endDate": "2026-08-23T00:00:00-04:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Washington Hilton",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1919 Connecticut Avenue NW",
+        "addressLocality": "Washington",
+        "addressRegion": "DC",
+        "postalCode": "20009",
+        "addressCountry": "US"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "GoCity Group",
+      "url": "https://allamericanball.com"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Grand Stand Ticket",
+        "price": "195",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-01"
+      },
+      {
+        "@type": "Offer",
+        "name": "Pole Position Pass",
+        "price": "395",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-01"
+      },
+      {
+        "@type": "Offer",
+        "name": "Winner's Circle Pass",
+        "price": "1495",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/LimitedAvailability",
+        "validFrom": "2026-01-01"
+      }
+    ],
+    "image": ogImage
+  })} />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+</head>
+<body class="min-h-screen flex flex-col">
+  <slot />
+
+  <!-- Eventbrite Modal Overlay -->
+  <div id="eb-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:99999; background:rgba(0,0,0,0.7);">
+    <div style="position:relative; width:90%; max-width:600px; height:85vh; margin:5vh auto; background:white; border-radius:12px; overflow:hidden;">
+      <button id="eb-modal-close" style="position:absolute; top:10px; right:14px; z-index:10; background:none; border:none; font-size:28px; cursor:pointer; color:#333; font-weight:bold;">&times;</button>
+      <iframe id="eb-iframe" src="" style="width:100%; height:100%; border:none;"></iframe>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var modal = document.getElementById('eb-modal');
+      var iframe = document.getElementById('eb-iframe');
+      var ebUrl = '#';
+
+      // All eventbrite-checkout buttons open the modal
+      document.querySelectorAll('.eventbrite-checkout').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          iframe.src = ebUrl;
+          modal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      // Close modal
+      document.getElementById('eb-modal-close').addEventListener('click', function() {
+        modal.style.display = 'none';
+        iframe.src = '';
+        document.body.style.overflow = '';
+      });
+
+      // Close on backdrop click
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+          iframe.src = '';
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+          modal.style.display = 'none';
+          iframe.src = '';
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

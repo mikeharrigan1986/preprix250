@@ -1,0 +1,129 @@
+---
+const ticketUrl = "#";
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background image — full-width, cover, centered, no distortion -->
+  <div class="absolute inset-0">
+    <img
+      src="/images/event/hero-toast.png"
+      alt="Thousands of guests raising champagne glasses in a spectacular ballroom"
+      class="w-full h-full object-cover object-center"
+    />
+    <!-- Dark overlay for logo visibility -->
+    <div class="absolute inset-0" style="background: rgba(0,0,0,0.4);"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-24 pb-16">
+    <!-- Transparent header banner with event name, date, location -->
+    <div class="hero-logo-wrap my-6 sm:my-8 animate-fade-in">
+      <img
+        src="/images/logos/countdown250-banner-transparent.png"
+        alt="Pre-Prix 250 — August 22, 2026 — Washington, D.C."
+        class="hero-logo mx-auto drop-shadow-2xl"
+      />
+    </div>
+
+    <div class="bg-black/60 backdrop-blur-sm rounded-2xl px-6 sm:px-10 py-6 mb-8 max-w-2xl mx-auto">
+      <p class="text-white text-lg sm:text-xl mb-4 font-light">
+        The ultimate black-tie racing gala.<br />
+        Where speed meets sophistication.
+      </p>
+
+      <div class="hero-features flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 text-white text-base sm:text-lg">
+        <span class="hero-feature font-semibold" style="--i:0">3,000 Guests</span>
+        <span class="text-white text-sm">&#9733;</span>
+        <span class="hero-feature font-semibold" style="--i:1">6 Party Zones</span>
+        <span class="text-white text-sm">&#9733;</span>
+        <span class="hero-feature font-semibold" style="--i:2">4 Stages</span>
+        <span class="text-white text-sm">&#9733;</span>
+        <span class="hero-feature font-semibold" style="--i:3">Grand Finale at Midnight</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a
+        href="#tickets"
+        class="bg-red hover:bg-red-light text-white px-10 py-4 text-lg font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+      >
+        Ticket Options
+      </a>
+      <a
+        href="#about"
+        class="bg-navy/80 hover:bg-navy border-2 border-white/30 hover:border-white/60 text-white px-10 py-4 text-lg font-semibold tracking-wider uppercase transition-all rounded hover:-translate-y-0.5"
+      >
+        Learn More
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  /* Hero logo — responsive, centered, no upscaling */
+  .hero-logo {
+    width: 90%;
+    max-width: 700px;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 640px) {
+    .hero-logo {
+      max-width: 90vw;
+    }
+  }
+
+  /* Wave animation: 4 features, each lights up for ~1s in sequence.
+     One full cycle = 4s (1s per feature). We want 4 cycles = 16s total.
+     Each feature is "on" for 25% of a cycle (its slot).
+     Using percentage keyframes within one cycle duration. */
+  @keyframes hero-wave {
+    0% {
+      color: #C0C0C0;
+      text-shadow: 0 0 4px rgba(192, 192, 192, 0.3);
+      transform: scale(1);
+    }
+    8% {
+      color: #ff3040;
+      text-shadow: 0 0 15px rgba(255, 48, 64, 1), 0 0 40px rgba(255, 48, 64, 0.8), 0 0 80px rgba(255, 48, 64, 0.5), 0 0 140px rgba(255, 48, 64, 0.3), 0 0 200px rgba(255, 48, 64, 0.15);
+      transform: scale(1.12);
+    }
+    16% {
+      color: #ff3040;
+      text-shadow: 0 0 15px rgba(255, 48, 64, 1), 0 0 40px rgba(255, 48, 64, 0.8), 0 0 80px rgba(255, 48, 64, 0.5), 0 0 140px rgba(255, 48, 64, 0.3), 0 0 200px rgba(255, 48, 64, 0.15);
+      transform: scale(1.12);
+    }
+    25% {
+      color: #C0C0C0;
+      text-shadow: 0 0 4px rgba(192, 192, 192, 0.3);
+      transform: scale(1);
+    }
+    100% {
+      color: #C0C0C0;
+      text-shadow: 0 0 4px rgba(192, 192, 192, 0.3);
+      transform: scale(1);
+    }
+  }
+  .hero-feature {
+    display: inline-block;
+    animation: hero-wave 12s ease-in-out 4;
+    animation-delay: calc(var(--i) * 3s);
+    animation-fill-mode: forwards;
+    color: #C0C0C0;
+  }
+</style>

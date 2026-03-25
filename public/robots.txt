@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://countdown250.allamericanball.com/sitemap-index.xml
