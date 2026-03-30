@@ -18,10 +18,10 @@ const { title, description, heading, subheading } = Astro.props;
   <Navbar />
   <main>
     <!-- Hero header for subpages -->
-    <section class="relative pt-32 pb-20 bg-navy text-white overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/90 to-navy"></div>
+    <section class="relative pt-32 pb-20 bg-midnight text-white overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-midnight-dark/90 to-midnight"></div>
       <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">{subheading || "All-American Countdown 250 Ball"}</p>
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">{subheading || "Pre-Prix 250"}</p>
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 font-heading">{heading}</h1>
         <div class="w-20 h-1 bg-red mx-auto"></div>
       </div>
@@ -35,7 +35,7 @@ const { title, description, heading, subheading } = Astro.props;
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-4 font-heading">Coming Soon</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-midnight mb-4 font-heading">Coming Soon</h2>
         <p class="text-slate/60 text-lg mb-8">
           This page is under construction. Check back soon for updates.
         </p>

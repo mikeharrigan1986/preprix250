@@ -155,7 +155,7 @@ const hostPackages = [
 ];
 ---
 
-<section id="tickets" class="py-20 sm:py-28 bg-navy-dark text-white">
+<section id="tickets" class="py-20 sm:py-28 bg-midnight-dark text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-16">
@@ -199,7 +199,7 @@ const hostPackages = [
           {/* Tier header bar */}
           <div class={`py-2 text-center text-xs font-bold tracking-widest uppercase ${
             ticket.highlight
-              ? 'bg-gold text-navy-dark'
+              ? 'bg-gold text-midnight-dark'
               : 'bg-white/10 text-white/60'
           }`}>
             {ticket.badge || `Tier ${ticket.tier}`}
@@ -210,14 +210,14 @@ const hostPackages = [
               <p class={`text-xs font-medium tracking-wider uppercase mb-2 ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
                 {ticket.time}
               </p>
-              <h3 class={`text-2xl font-bold mb-1 ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
+              <h3 class={`text-2xl font-bold mb-1 ${ticket.highlight ? 'text-midnight' : 'text-white'}`}>
                 {ticket.name}
               </h3>
             </div>
 
             <div class="mb-6 pb-6 border-b ${ticket.highlight ? 'border-slate/10' : 'border-white/10'}">
               <div class="flex items-baseline gap-1">
-                <span class={`text-4xl font-bold ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
+                <span class={`text-4xl font-bold ${ticket.highlight ? 'text-midnight' : 'text-white'}`}>
                   {ticket.price}
                 </span>
                 <span class={`text-sm ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
@@ -236,7 +236,7 @@ const hostPackages = [
             )}
 
             {ticket.sectionIntro && (
-              <p class={`text-xs font-bold tracking-wider uppercase mb-4 ${ticket.highlight ? 'text-navy/70' : 'text-gold/90'}`}>
+              <p class={`text-xs font-bold tracking-wider uppercase mb-4 ${ticket.highlight ? 'text-midnight/70' : 'text-gold/90'}`}>
                 {ticket.sectionIntro}
               </p>
             )}
@@ -245,7 +245,7 @@ const hostPackages = [
               {ticket.sections.map((section, si) => (
                 <div>
                   <p class={`text-xs font-bold tracking-wider uppercase mb-2 ${
-                    ticket.highlight ? 'text-navy/70' : 'text-gold/90'
+                    ticket.highlight ? 'text-midnight/70' : 'text-gold/90'
                   } ${si > 0 ? 'pt-3 border-t ' + (ticket.highlight ? 'border-slate/10' : 'border-white/10') : ''}`}>
                     {section.heading}
                   </p>

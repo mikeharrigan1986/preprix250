@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0c1445;
-  --color-navy-dark: #060b2a;
-  --color-navy-light: #1a2666;
+  --color-midnight: #0c1445;
+  --color-midnight-dark: #060b2a;
+  --color-midnight-light: #1a2666;
   --color-red: #e10600;
   --color-red-dark: #b80500;
   --color-red-light: #ff1a0e;
@@ -30,7 +30,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    color: var(--color-navy);
+    color: var(--color-midnight);
   }
 }
 

@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://preprix250.com',
+  site: 'https://preprix250.allamericanball.com',
   base: '/',
   integrations: [sitemap()],
   vite: {
