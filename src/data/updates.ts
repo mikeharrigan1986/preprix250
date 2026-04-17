@@ -7,6 +7,12 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: "2026-04-16",
+    headline: "Pre-Prix 250 is the Black-Tie Gala of Freedom 250 Grand Prix Weekend",
+    slug: "freedom-250-grand-prix-weekend-gala",
+    body: "The Freedom 250 Grand Prix of Washington, D.C. brings the first-ever INDYCAR race to a street circuit around the National Mall on August 22-23, 2026. Pre-Prix 250 is built for Saturday night: a black-tie racing gala at the Washington Hilton, two miles from the circuit, featuring 3,000 guests, 6 grand party areas, multiple live bands and DJs, the Grand Prix Tribute performance, and the Racing Legends Lifetime Achievement Awards. See our guide to Grand Prix weekend evening plans at /freedom-250-grand-prix-evening.",
+  },
+  {
     date: "2026-03-20",
     headline: "Early Release Tickets Now Available",
     slug: "early-release-tickets",

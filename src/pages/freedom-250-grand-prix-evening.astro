@@ -1,0 +1,285 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const ticketUrl = "#"; // TODO: replace with Eventbrite URL once event is created
+
+const faqs = [
+  {
+    q: "What is the Freedom 250 Grand Prix?",
+    a: "The Freedom 250 Grand Prix of Washington, D.C. is the first-ever INDYCAR race to take place on a street circuit around the National Mall, scheduled for August 22–23, 2026. The two-day motorsports event celebrates America's 250th anniversary with world-class racing set against landmarks including the Washington Monument and the U.S. Capitol. The event is produced in partnership between INDYCAR and Monumental Sports & Entertainment."
+  },
+  {
+    q: "Is Pre-Prix 250 part of the Freedom 250 Grand Prix?",
+    a: "Pre-Prix 250 is an independently produced black-tie gala held Saturday evening, August 22, 2026 — the night between the Grand Prix's two race days — at the historic Washington Hilton. It is designed as a formal evening option for race fans, out-of-town visitors, hospitality clients, and DC-area guests. Pre-Prix 250 is not officially affiliated with, endorsed by, or an official event of the Freedom 250 Grand Prix, INDYCAR, Monumental Sports & Entertainment, or Freedom 250."
+  },
+  {
+    q: "How does the timing work with the race?",
+    a: "The Freedom 250 Grand Prix runs August 22–23, 2026, with practice and qualifying on Saturday and the main race Sunday. Pre-Prix 250 begins at 6:00 PM on Saturday evening and ends by midnight, giving Sunday race attendees time to rest before the main event. The Washington Hilton is approximately two miles from the National Mall street circuit."
+  },
+  {
+    q: "Why is it called Pre-Prix 250?",
+    a: "Pre-Prix is a nod to both the race-weekend positioning and the 250th anniversary of American independence. The Grand Prix celebrates America's 250th by bringing a historic first-ever INDYCAR street race to the National Mall; Pre-Prix 250 complements it with a formal black-tie evening of racing-themed celebration in the same city on the same weekend."
+  },
+  {
+    q: "Who is the typical Pre-Prix 250 guest?",
+    a: "Race fans traveling to DC for the Grand Prix, corporate hospitality clients, motorsports enthusiasts, DC-area residents looking for a premier Saturday evening, and racing industry professionals. The event is designed to scale from grand stand-priced general admission to premium Winner's Circle and Champion's Host Package levels."
+  },
+  {
+    q: "What is the dress code?",
+    a: "Black tie optional — racing-inspired flair encouraged. Suits or cocktail attire are welcome; driving gloves and checkered bow ties have been spotted in concept renderings."
+  },
+  {
+    q: "What's included with a ticket?",
+    a: "All tickets include full ball access, 4 grand party areas, multiple live bands and DJs, immersive experiences, roaming entertainers, the Grand Prix Tribute performance, and the Racing Legends Lifetime Achievement Awards ceremony. Higher tiers include VIP reception, premium buffet dinner, reserved Champion's Stage seating, concierge service, and more."
+  },
+  {
+    q: "Can I attend both the race and Pre-Prix 250?",
+    a: "Yes — and that's the point. Saturday: daytime practice and qualifying on the National Mall circuit, then the gala in the evening. Sunday: the main INDYCAR race. Pre-Prix 250 ends by midnight so guests can rest for Sunday's race."
+  }
+];
+---
+
+<BaseLayout
+  title="Freedom 250 Grand Prix Weekend Gala | Pre-Prix 250 | August 22, 2026 Washington DC"
+  description="In town for the Freedom 250 Grand Prix of Washington, D.C.? Pre-Prix 250 is the black-tie racing gala on Saturday, August 22 at the historic Washington Hilton. Live entertainment, racing tribute, midnight finale."
+  ogImage="/images/event/hero-toast.png"
+>
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="relative pt-32 pb-20 bg-midnight text-white overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-midnight-dark/90 to-midnight"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Freedom 250 Grand Prix Weekend</p>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-heading leading-tight">
+          The Black-Tie Racing Gala of Grand Prix Weekend
+        </h1>
+        <p class="text-xl sm:text-2xl text-white/85 mb-8 max-w-3xl mx-auto leading-relaxed">
+          While the Freedom 250 Grand Prix of Washington, D.C. celebrates America&rsquo;s 250th on the National Mall
+          by day, Pre-Prix 250 delivers the formal Saturday evening &mdash; August 22, 2026, at the historic
+          Washington Hilton.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href={ticketUrl} class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
+            Get Tickets
+          </a>
+          <a href="#pairing" class="inline-block border-2 border-white/40 hover:border-white text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded">
+            Race Weekend Plan
+          </a>
+        </div>
+        <div class="w-20 h-1 bg-red mx-auto mt-10"></div>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-slate/70 text-lg leading-relaxed space-y-6">
+          <p>
+            The Freedom 250 Grand Prix is the first-ever INDYCAR race on a street circuit around the National Mall
+            &mdash; two days of world-class motorsport set against the Washington Monument and the U.S. Capitol,
+            August 22 through 23, 2026.
+          </p>
+          <p>
+            Pre-Prix 250 is built for Saturday night. Two miles from the circuit, at the historic Washington Hilton,
+            3,000 guests will gather for a black-tie celebration that fuses racing glamour with Washington pedigree.
+            Reception at 6 PM. Ball until midnight. Race-ready by Sunday morning.
+          </p>
+          <p class="font-semibold text-midnight text-xl">
+            Saturday: the gala. Sunday: the race.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pairing -->
+    <section id="pairing" class="py-20 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">The Weekend</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-midnight mb-6 font-heading">Two Days. Two Historic Events. One Weekend.</h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Grand Prix column -->
+          <div class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
+            <p class="text-gold font-medium tracking-[0.15em] uppercase text-xs mb-3">Saturday Day + Sunday</p>
+            <h3 class="text-2xl font-bold text-midnight mb-4 font-heading">Freedom 250 Grand Prix</h3>
+            <ul class="text-slate/70 space-y-3 text-base leading-relaxed">
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>Street circuit around the National Mall</span></li>
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>First-ever INDYCAR race in Washington, D.C.</span></li>
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>Practice &amp; qualifying Saturday; main race Sunday</span></li>
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>Washington Monument and U.S. Capitol backdrop</span></li>
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>Broadcast live on FOX Sports (NTT INDYCAR SERIES)</span></li>
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>Limited free tickets available at freedom250gp.com</span></li>
+            </ul>
+          </div>
+          <!-- Pre-Prix column -->
+          <div class="bg-midnight text-white rounded-2xl p-8 sm:p-10 shadow-lg">
+            <p class="text-gold font-medium tracking-[0.15em] uppercase text-xs mb-3">Saturday Evening</p>
+            <h3 class="text-2xl font-bold text-white mb-4 font-heading">Pre-Prix 250</h3>
+            <ul class="text-white/80 space-y-3 text-base leading-relaxed">
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>Washington Hilton, two miles from the circuit</span></li>
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>6 PM reception &ndash; midnight finale</span></li>
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>3,000 guests, black-tie optional with racing flair</span></li>
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>6 grand party areas, 4 stages, premium open bars</span></li>
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>Grand Prix Tribute performance &amp; Racing Legends Awards</span></li>
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>Tickets from $195 to $18,500</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-slate/70 text-lg max-w-2xl mx-auto">
+            Saturday afternoon: qualifying on the Mall. Saturday evening: black tie at the Hilton. Saturday midnight: grand finale.
+            Sunday morning: race day. The rhythm of the weekend.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why August 22 -->
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Why This Weekend</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-midnight mb-6 font-heading">An INDYCAR First. A Gala to Match.</h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+        <div class="text-slate/70 text-lg leading-relaxed space-y-6">
+          <p>
+            Washington, D.C. has never hosted an INDYCAR race. The Freedom 250 Grand Prix changes that &mdash; weaving
+            a street circuit through the capital's most iconic landmarks for America&rsquo;s 250th anniversary.
+          </p>
+          <p>
+            A first-ever moment like that calls for a formal social anchor. Pre-Prix 250 is Saturday night&rsquo;s black-tie
+            gala at the Washington Hilton, three blocks from the White House and two miles from the starting grid. 3,000
+            guests. Racing-inspired decor, live entertainment, a Grand Prix Tribute, and a grand finale at midnight.
+          </p>
+          <p>
+            Whether you&rsquo;re a race fan in town for the weekend, a sponsor entertaining clients, or a DC resident
+            who wants to be at the center of the most-watched motorsports moment of the year &mdash; this is the evening.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logistics -->
+    <section class="py-20 bg-midnight text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Plan Your Weekend</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 font-heading">Getting There &amp; What to Expect</h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="bg-midnight-dark/40 rounded-xl p-6 border border-white/10">
+            <h3 class="text-lg font-bold text-gold mb-2">Venue</h3>
+            <p class="text-white/80 text-sm leading-relaxed">Washington Hilton, 1919 Connecticut Ave NW, Washington, D.C. 20009. Historic site of presidential galas and the White House Correspondents&rsquo; Dinner.</p>
+          </div>
+          <div class="bg-midnight-dark/40 rounded-xl p-6 border border-white/10">
+            <h3 class="text-lg font-bold text-gold mb-2">From the Circuit</h3>
+            <p class="text-white/80 text-sm leading-relaxed">Two miles from the National Mall street circuit. Easy cab or rideshare. DC Metro Red Line (Dupont Circle) is a short walk from the venue.</p>
+          </div>
+          <div class="bg-midnight-dark/40 rounded-xl p-6 border border-white/10">
+            <h3 class="text-lg font-bold text-gold mb-2">Dress Code</h3>
+            <p class="text-white/80 text-sm leading-relaxed">Black tie optional, racing-inspired flair encouraged. Suits and cocktail attire welcome.</p>
+          </div>
+          <div class="bg-midnight-dark/40 rounded-xl p-6 border border-white/10">
+            <h3 class="text-lg font-bold text-gold mb-2">Timing</h3>
+            <p class="text-white/80 text-sm leading-relaxed">VIP Reception 6&ndash;8 PM (Pole Position &amp; Winner&rsquo;s Circle). The Ball 8 PM&ndash;Midnight (all tiers). Grand finale midnight.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tickets CTA -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Reserve Your Spot</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-midnight mb-6 font-heading">Three Ways to Experience Race Weekend</h2>
+        <div class="w-16 h-1 bg-red mx-auto mb-10"></div>
+
+        <div class="grid sm:grid-cols-3 gap-6 mb-10 text-left">
+          <div class="bg-white rounded-xl p-6">
+            <h3 class="text-lg font-bold text-midnight mb-2">Grand Stand</h3>
+            <p class="text-2xl font-bold text-red mb-2">$195</p>
+            <p class="text-slate/60 text-sm">Full ball access, 8 PM &ndash; Midnight.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6 border-2 border-gold">
+            <h3 class="text-lg font-bold text-midnight mb-2">Pole Position</h3>
+            <p class="text-2xl font-bold text-red mb-2">$395</p>
+            <p class="text-slate/60 text-sm">VIP reception 6&ndash;8 PM + full ball.</p>
+          </div>
+          <div class="bg-midnight text-white rounded-xl p-6">
+            <h3 class="text-lg font-bold text-gold mb-2">Winner&rsquo;s Circle</h3>
+            <p class="text-2xl font-bold text-white mb-2">$1,495</p>
+            <p class="text-white/70 text-sm">Reserved Champion&rsquo;s Stage seating. Concierge service.</p>
+          </div>
+        </div>
+
+        <a href={ticketUrl} class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
+          See All Ticket Options
+        </a>
+        <p class="text-slate/50 text-sm mt-4">Prices increase in waves as the race approaches.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Frequently Asked</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-midnight mb-6 font-heading">Grand Prix Weekend Questions</h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="space-y-6">
+          {faqs.map(({ q, a }) => (
+            <div class="bg-cream rounded-xl p-6">
+              <h3 class="text-lg font-bold text-midnight mb-3 font-heading">{q}</h3>
+              <p class="text-slate/70 leading-relaxed">{a}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-12 p-6 bg-midnight/5 rounded-xl text-sm text-slate/60 leading-relaxed">
+          <p>
+            <strong class="text-midnight">Disclaimer:</strong> Pre-Prix 250 is an independently produced black-tie
+            gala taking place on Saturday, August 22, 2026. It is not affiliated with, endorsed by, or an official
+            event of the Freedom 250 Grand Prix of Washington D.C., NTT INDYCAR SERIES, INDYCAR, Monumental Sports
+            &amp; Entertainment, Freedom 250, or the U.S. Semiquincentennial Commission. References to the Freedom
+            250 Grand Prix are made for informational and contextual purposes only, to help guests planning their
+            Washington, D.C. race-weekend travel.
+          </p>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="/" class="inline-block bg-white border-2 border-midnight text-midnight hover:bg-midnight hover:text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded hover:-translate-y-0.5">
+            Explore the Full Event
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Structured Data for SEO -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(({ q, a }) => ({
+        "@type": "Question",
+        "name": q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": a
+        }
+      }))
+    })} />
+  </main>
+  <Footer />
+</BaseLayout>
